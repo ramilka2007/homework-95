@@ -26,12 +26,12 @@ const Home = () => {
     };
     return (
         <>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 gap-5">
+            {cocktails.length > 0 ? <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 gap-5">
                 {cocktails.map((cocktail) => (
                     <CocktailItem key={cocktail._id} cocktail={cocktail} cocktailDelete={cocktailDeleter}
                                   cocktailPublish={togglePublishCocktail}/>
                 ))}
-            </div>
+            </div> : <h1>No published cocktails.</h1>}
         </>
     );
 };

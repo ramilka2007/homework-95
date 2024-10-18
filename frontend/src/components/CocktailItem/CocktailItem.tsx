@@ -5,6 +5,7 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks.ts";
 import {API_URL} from "../../constants.ts";
 import NoImage from "../../assets/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"
 import {selectUser} from "../../features/users/usersSlice.ts";
+import {NavLink} from "react-router-dom";
 
 interface Props {
     cocktail: Cocktail;
@@ -20,30 +21,32 @@ const CocktailItem: React.FC<Props> = ({cocktail, cocktailDelete, cocktailPublis
     }, [dispatch])
     return (
         <Card sx={{ maxWidth: 345 }}>
-            <CardHeader
-                avatar={
-                    <img
-                        src={API_URL + '/' + cocktail.user.avatar}
-                        alt=""
-                        width="50px"
-                        height="50px"
-                        className="rounded-circle ms-2"
-                    />
-                }
-                title={cocktail.user.displayName}
-                subheader={cocktail.isPublished ? null : "Cocktail hasn't published yet."}
-            />
-            <CardMedia
-                component="img"
-                height="194"
-                image={cocktail.image ? API_URL + '/' + cocktail.image : NoImage}
-                alt=""
-            />
-            <CardContent>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {cocktail.recipe}
-                </Typography>
-            </CardContent>
+            <NavLink to={`/cocktails/${cocktail._id}`} className="text-decoration-none text-dark">
+                <CardHeader
+                    avatar={
+                        <img
+                            src={API_URL + '/' + cocktail.user.avatar}
+                            alt=""
+                            width="50px"
+                            height="50px"
+                            className="rounded-circle ms-2"
+                        />
+                    }
+                    title={cocktail.user.displayName}
+                    subheader={cocktail.isPublished ? null : "Cocktail hasn't published yet."}
+                />
+                <CardMedia
+                    component="img"
+                    height="194"
+                    image={cocktail.image ? API_URL + '/' + cocktail.image : NoImage}
+                    alt=""
+                />
+                <CardContent>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                        {cocktail.recipe}
+                    </Typography>
+                </CardContent>
+            </NavLink>
             {user.role === 'admin' && (
                 <div className="mb-3">
                     <button
