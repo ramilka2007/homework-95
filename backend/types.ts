@@ -16,3 +16,8 @@ export interface UserMethods {
 }
 
 export type UserModel = Model<UserFields, {}, UserMethods>;
+
+export interface Ingredient {
+    name: string;
+    amount: string;
+}

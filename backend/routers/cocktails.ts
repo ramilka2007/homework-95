@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import auth, {RequestWithUser} from "../middleware/auth";
 import {imagesUpload} from "../multer";
 import permit from "../middleware/permit";
+import parseIngredients from "../helpers/parseIngredients";
 
 const cocktailsRouter = express.Router();
 
@@ -42,11 +43,12 @@ cocktailsRouter.post(
     imagesUpload.single('image'),
     async (req: RequestWithUser, res, next) => {
         try {
+            const ingredients = parseIngredients(req.body.ingredients)
             const cocktailData = {
                 user: req.user,
                 name: req.body.name,
                 image: req.file ? req.file.filename : null,
-                ingredients: req.body.ingredients,
+                ingredients: ingredients,
                 recipe: req.body.recipe,
             };
 

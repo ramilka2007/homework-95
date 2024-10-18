@@ -14,7 +14,6 @@ const CocktailSchema = new Schema({
     },
     image: {
         type: String,
-        required: true,
     },
     recipe: {
         type: String,

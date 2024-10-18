@@ -34,3 +34,25 @@ export interface LoginMutation {
 export interface GlobalError {
   error: string;
 }
+
+export interface Ingredients {
+  name: string;
+  amount: string;
+}
+
+export interface Cocktail {
+  _id: string;
+  user: string;
+  name: string;
+  image: string;
+  recipe: string;
+  isPublished: boolean;
+  ingredients: Ingredients[]
+}
+
+export interface CocktailForm {
+  name: string;
+  image: File | null;
+  recipe: string;
+  ingredients: Ingredients[];
+}
