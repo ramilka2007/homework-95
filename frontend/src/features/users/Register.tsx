@@ -87,7 +87,7 @@ const Register = () => {
           <Grid item>
             <TextField
               required
-              label="Username"
+              label="Email"
               name="username"
               autoComplete="new-username"
               value={state.username}
@@ -136,7 +136,12 @@ const Register = () => {
           fullWidth
           variant="contained"
           sx={{ mt: 3, mb: 2 }}
-          disabled={state.username === '' || state.displayName === '' || state.password === '' || state.avatar === null}
+          disabled={
+            state.username === '' ||
+            state.displayName === '' ||
+            state.password === '' ||
+            state.avatar === null
+          }
         >
           Sign up
         </Button>

@@ -11,7 +11,7 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist';
-import {cocktailsReducer} from "../features/cocktails/cocktailsSlice.ts";
+import { cocktailsReducer } from '../features/cocktails/cocktailsSlice.ts';
 
 const usersPersistConfig = {
   key: 'store:users',

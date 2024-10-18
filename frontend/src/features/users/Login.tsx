@@ -27,6 +27,10 @@ const Login = () => {
     password: '',
   });
 
+  const getFieldError = (fieldName: string) => {
+    return error?.errors[fieldName]?.message;
+  };
+
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
@@ -88,11 +92,13 @@ const Login = () => {
             <Grid item xs={12}>
               <TextField
                 required
-                label="Username"
+                label="Email"
                 name="username"
                 autoComplete="current-username"
                 value={state.username}
                 onChange={inputChangeHandler}
+                error={Boolean(getFieldError('username'))}
+                helperText={getFieldError('username')}
               />
             </Grid>
 
@@ -105,6 +111,8 @@ const Login = () => {
                 autoComplete="current-password"
                 value={state.password}
                 onChange={inputChangeHandler}
+                error={Boolean(getFieldError('password'))}
+                helperText={getFieldError('password')}
               />
             </Grid>
           </Grid>

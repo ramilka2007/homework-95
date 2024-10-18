@@ -47,7 +47,7 @@ export interface Cocktail {
   image: string;
   recipe: string;
   isPublished: boolean;
-  ingredients: Ingredients[]
+  ingredients: Ingredients[];
 }
 
 export interface CocktailForm {

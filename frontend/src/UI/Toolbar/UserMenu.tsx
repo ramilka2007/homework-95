@@ -66,26 +66,29 @@ const UserMenu: React.FC<Props> = ({ user, googleAccount }) => {
           onClose={handleClose}
         >
           <MenuItem
-              component={NavLink}
-              className="text-decoration-none text-black"
-              to="/add-cocktail"
+            component={NavLink}
+            className="text-decoration-none text-black"
+            to="/add-cocktail"
           >
             Add cocktail
           </MenuItem>
-          {user.role === 'user' ? <MenuItem
+          {user.role === 'user' ? (
+            <MenuItem
               component={NavLink}
               className="text-decoration-none text-black"
               to={`/cocktails?user=${user._id}`}
-          >
-            My cocktails
-          </MenuItem> :
-              <MenuItem
+            >
+              My cocktails
+            </MenuItem>
+          ) : (
+            <MenuItem
               component={NavLink}
               className="text-decoration-none text-black"
               to="/cocktails"
-          >
-            All cocktails
-          </MenuItem>}
+            >
+              All cocktails
+            </MenuItem>
+          )}
           <MenuItem
             onClick={handleLogout}
             component={NavLink}
