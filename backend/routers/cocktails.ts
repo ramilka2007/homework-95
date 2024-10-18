@@ -14,9 +14,9 @@ cocktailsRouter.get('/', async (req, res, next) => {
         let cocktail;
 
         if (userCocktails) {
-            cocktail = await Cocktail.find({user: userCocktails});
+            cocktail = await Cocktail.find({user: userCocktails}).populate('user');
         } else {
-            cocktail = await Cocktail.find()
+            cocktail = await Cocktail.find().populate('user')
         }
         return res.send(cocktail);
     } catch (error) {

@@ -80,7 +80,6 @@ const UserMenu: React.FC<Props> = ({ user, googleAccount }) => {
             My cocktails
           </MenuItem> :
               <MenuItem
-              onClick={handleLogout}
               component={NavLink}
               className="text-decoration-none text-black"
               to="/cocktails"
