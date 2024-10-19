@@ -9,7 +9,7 @@ import { addCocktail } from '../../features/cocktails/cocktailsThunk.ts';
 import { selectCocktailAddLoading } from '../../features/cocktails/cocktailsSlice.ts';
 import { toast } from 'react-toastify';
 
-const ArtistForm = () => {
+const CocktailForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const addLoading = useAppSelector(selectCocktailAddLoading);
@@ -164,4 +164,4 @@ const ArtistForm = () => {
   );
 };
 
-export default ArtistForm;
+export default CocktailForm;
